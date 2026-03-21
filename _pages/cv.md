@@ -39,7 +39,7 @@ ML infrastructure and evaluation engineer with about four years of experience bu
 ### Tonfans
 Lead Developer, Sep 2024 - Nov 2025
 
-- Owned end-to-end delivery of a production Telegram bot integrated with the TON blockchain for community payments and access control
+- Owned end-to-end delivery of a production Telegram Mini App integrated with the TON blockchain for community payments and access control
 - Implemented purchase and verification flows for NFTs and Jettons with automated ownership gating
 - Built secure Python backend workflows and Telegram Bot API integrations for high-volume user interactions
 
