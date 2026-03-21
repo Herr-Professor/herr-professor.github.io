@@ -34,8 +34,12 @@ layout: default
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
         {% endif %}
         
-        {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% if page.collection == 'teaching' and page.role and page.company %}
+          <p>{{ page.role }}, <i>{{ page.company }}</i>{% if page.date_range %}, {{ page.date_range }}{% endif %}</p>
+        {% elsif page.collection == 'portfolio' and page.tech %}
+          <p>{{ page.tech }}</p>
+        {% elsif page.collection == 'talks' and page.focus %}
+          <p>{{ page.focus }}</p>
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
@@ -46,6 +50,14 @@ layout: default
 
       <section class="page__content" itemprop="text">
         {{ content }}
+
+        {% if page.project_url or page.demo_url %}
+          <p>
+            {% if page.project_url %}<a href="{{ page.project_url }}">Code</a>{% endif %}
+            {% if page.project_url and page.demo_url %} | {% endif %}
+            {% if page.demo_url %}<a href="{{ page.demo_url }}">Live</a>{% endif %}
+          </p>
+        {% endif %}
 
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
@@ -72,8 +84,6 @@ layout: default
         {% elsif page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% endif %}
-
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
       <footer class="page__meta">
