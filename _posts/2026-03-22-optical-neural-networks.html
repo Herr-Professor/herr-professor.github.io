@@ -1,5 +1,5 @@
 ---
-layout: feature-post
+layout: single
 title: "Optical Neural Networks - Where the Matmul Is the Hardware"
 excerpt: "A systems-engineer’s map of optical neural networks: what the optical core actually computes, how MZI meshes and diffractive systems differ, where training and calibration fit, and where the real engineering tradeoffs show up."
 permalink: /blog/optical-neural-networks/
@@ -981,18 +981,17 @@ tags:
 </style>
 
 <article class="onn-post">
-  <header class="hero">
-    <p class="hero-label">Hardware Notes · Photonic ML · Systems View</p>
-    <h1>Optical Neural <span>Networks</span></h1>
-    <p class="hero-sub">
-      Strip away the optics jargon and the cleanest mental model is this: an optical neural network offloads some linear algebra into a physical system where light propagation performs the transform. The interesting engineering question is not whether photons are fast. It is where the digital-analog boundaries, calibration loops, and programmability costs move.
-    </p>
-    <div class="hero-note">
+  <main class="article">
+    <div class="section-intro" style="margin-bottom: 1.5rem;">
+      <p>
+        Strip away the optics jargon and the cleanest mental model is this: an optical neural network offloads some linear algebra into a physical system where light propagation performs the transform. The interesting engineering question is not whether photons are fast. It is where the digital-analog boundaries, calibration loops, and programmability costs move.
+      </p>
+    </div>
+
+    <div class="hero-note" style="margin-bottom: 1.5rem;">
       <strong>Scope.</strong> This post focuses on current inference-oriented ONN hardware, especially coherent Mach-Zehnder-interferometer meshes and diffractive optical systems. Several performance figures below come from different papers and counting conventions, so any GPU comparison is directional rather than apples-to-apples.
     </div>
-  </header>
 
-  <main class="article">
     <div class="tabs-shell">
       <div class="tabs" role="tablist" aria-label="Optical neural network sections">
         <button class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="onn-panel-0" id="onn-tab-0" data-panel="0">
