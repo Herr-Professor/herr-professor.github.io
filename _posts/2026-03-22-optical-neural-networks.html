@@ -3,9 +3,10 @@ layout: feature-post
 title: "Optical Neural Networks - Where the Matmul Is the Hardware"
 excerpt: "A systems-engineer’s map of optical neural networks: what the optical core actually computes, how MZI meshes and diffractive systems differ, where training and calibration fit, and where the real engineering tradeoffs show up."
 permalink: /blog/optical-neural-networks/
-author_profile: false
+author_profile: true
+show_date: false
 read_time: true
-share: true
+share: false
 related: false
 comments: false
 tags:
@@ -796,6 +797,186 @@ tags:
       padding-right: 0.45rem;
       font-size: 0.94rem;
     }
+  }
+
+  .feature-post {
+    width: auto;
+  }
+
+  .feature-post .page__inner-wrap,
+  .feature-post .page__content,
+  .feature-post .page__meta,
+  .feature-post .page__share {
+    width: auto;
+    max-width: none;
+  }
+
+  .onn-post {
+    --surface: #ffffff;
+    --surface-alt: #f8fafc;
+    --surface-soft: #eff6ff;
+    --surface-warm: #fef3c7;
+    --text: #1f2937;
+    --text-soft: #4b5563;
+    --ink: #1f2937;
+    --ink-soft: #6b7280;
+    --line: rgba(15, 23, 42, 0.12);
+    --line-dark: rgba(15, 23, 42, 0.12);
+    background: transparent;
+    color: var(--text);
+    margin: 0;
+    width: auto;
+    overflow: visible;
+  }
+
+  .onn-post::before {
+    display: none;
+  }
+
+  .onn-post h1,
+  .onn-post h2,
+  .onn-post h3,
+  .onn-post h4,
+  .onn-post p,
+  .onn-post li,
+  .onn-post table,
+  .onn-post .tab,
+  .onn-post .subtab,
+  .onn-post .flow-node strong,
+  .onn-post .flow-node span {
+    font-family: inherit;
+  }
+
+  .onn-post .hero,
+  .onn-post .article {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .onn-post .hero {
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
+
+  .onn-post .hero-label,
+  .onn-post .kicker,
+  .onn-post .mini-label,
+  .onn-post .metric-label {
+    color: var(--ink-soft);
+  }
+
+  .onn-post .hero h1 {
+    color: var(--text);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.08;
+    max-width: 14ch;
+  }
+
+  .onn-post .hero h1 span {
+    color: #1d4ed8;
+  }
+
+  .onn-post .hero-sub,
+  .onn-post .section-intro p,
+  .onn-post .metric-copy,
+  .onn-post .caption,
+  .onn-post .footer-note,
+  .onn-post .card p,
+  .onn-post .wide-card p,
+  .onn-post .note p,
+  .onn-post .reference-card p,
+  .onn-post .diagram-card p {
+    color: var(--text-soft);
+  }
+
+  .onn-post .hero-note,
+  .onn-post .highlight {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: var(--text-soft);
+    backdrop-filter: none;
+  }
+
+  .onn-post .highlight strong,
+  .onn-post .hero-note strong {
+    color: var(--text);
+  }
+
+  .onn-post .tabs-shell {
+    position: static;
+    top: auto;
+    background: transparent;
+    backdrop-filter: none;
+    padding-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .onn-post .tab,
+  .onn-post .subtab {
+    background: #ffffff;
+    color: var(--text-soft);
+    border-color: #e5e7eb;
+    box-shadow: none;
+  }
+
+  .onn-post .tab:hover,
+  .onn-post .tab:focus-visible,
+  .onn-post .subtab:hover,
+  .onn-post .subtab:focus-visible {
+    color: var(--text);
+    border-color: #cbd5e1;
+    transform: none;
+  }
+
+  .onn-post .tab.is-active {
+    background: #111827;
+    color: #ffffff;
+    border-color: #111827;
+    box-shadow: none;
+  }
+
+  .onn-post .subtab.is-active {
+    background: #f3f4f6;
+    color: #111827;
+    border-color: #d1d5db;
+  }
+
+  .onn-post .card,
+  .onn-post .wide-card,
+  .onn-post .note,
+  .onn-post .bandwidth,
+  .onn-post .table-card,
+  .onn-post .reference-card,
+  .onn-post .diagram-card,
+  .onn-post .badge-card {
+    background: #ffffff;
+    color: var(--text);
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+  }
+
+  .onn-post .code,
+  .onn-post .flow-node,
+  .onn-post .step,
+  .onn-post .diagram {
+    background: #f8fafc;
+    border-color: #e5e7eb;
+    color: var(--text);
+  }
+
+  .onn-post .bar-track {
+    background: #e5e7eb;
+  }
+
+  .onn-post .bar-row strong,
+  .onn-post .bar-row span,
+  .onn-post th {
+    color: var(--text-soft);
+  }
+
+  .onn-post .references a {
+    color: #1d4ed8;
   }
 </style>
 
