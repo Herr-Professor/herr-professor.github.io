@@ -14,7 +14,6 @@
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% assign show_post_date = post.show_date %}
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
         <img src=
@@ -40,15 +39,13 @@
     {% endif %}
 
         {% if post.collection == 'teaching' and post.role and post.company %}
-          <p>{{ post.role }}, <i>{{ post.company }}</i>{% if post.date_range %}, {{ post.date_range }}{% endif %}</p>
+          <p>{{ post.role }}, <i>{{ post.company }}</i></p>
         {% elsif post.collection == 'portfolio' and post.tech %}
           <p>{{ post.tech }}</p>
         {% elsif post.collection == 'talks' and post.focus %}
           <p>{{ post.focus }}</p>
         {% elsif post.collection == 'publications' %}
-          <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif post.date and show_post_date != false %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+          <p>Published in <i>{{ post.venue }}</i></p>
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
