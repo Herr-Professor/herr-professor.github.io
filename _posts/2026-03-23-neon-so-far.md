@@ -225,7 +225,7 @@ The project is organized around one question: does this training pipeline produc
 
 ## Neon’s Model
 
-I am also releasing a trained Neon model on HuggingFace: [https://huggingface.co/Herrprofessor/Neon](https://huggingface.co/Herrprofessor/Neon)
+The codebase is now live at [https://github.com/Herr-Professor/Neon](https://github.com/Herr-Professor/Neon), and the trained model is live on HuggingFace at [https://huggingface.co/Herrprofessor/Neon](https://huggingface.co/Herrprofessor/Neon).
 
 It is a fast neural network predictor for dielectric slab optical response. Give it slab thickness, relative permittivity real part, and wavelength, and it returns transmission, reflection, and peak intensity in milliseconds.
 
