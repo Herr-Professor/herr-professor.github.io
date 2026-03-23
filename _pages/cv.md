@@ -19,7 +19,7 @@ ML infrastructure and evaluation engineer with about four years of experience bu
 
 ## Skills
 
-- Languages: C++20, Python, JavaScript/TypeScript, SQL
+- Languages: C++, Python, JavaScript/TypeScript, SQL
 - ML infrastructure: Gymnasium environments, deterministic verifiers, sandboxed execution, pass@k evaluation with bootstrap confidence intervals, offline RL, experiment tracking, multi-model evaluation registries
 - Data systems: Parquet/Arrow, versioned dataset artifacts, data contracts, leakage audits, drift gating, provenance tracking, PostgreSQL, SQLite, async pipelines
 - Systems: custom allocators, compression algorithms, SIMD (AVX2), memory management, profiling, observability, thread safety

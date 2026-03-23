@@ -3,7 +3,7 @@ title: "Compression Bench"
 excerpt: "Compression benchmark suite implementing classic algorithms from scratch with SIMD acceleration and reproducible reporting."
 collection: portfolio
 permalink: /projects/compression-bench/
-tech: "C++20, SIMD, multithreading, CMake, benchmarking"
+tech: "C++, SIMD, multithreading, CMake, benchmarking"
 project_url: "https://github.com/Herr-Professor/compression-bench"
 ---
 
