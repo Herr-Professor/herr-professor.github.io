@@ -40,7 +40,7 @@ I started Neon because I wanted a research codebase I could understand end to en
 
 There are plenty of powerful simulation environments in photonics, but for the questions I cared about most, I wanted something smaller and more inspectable: a numerical solver I could validate directly, extend carefully, and then use as a base for machine-learning experiments without losing track of what the model was actually learning. Neon started there, as a minimal scalar Helmholtz code. It has gradually turned into something broader: a private solver-plus-ML platform for careful, benchmark-scale numerical modeling experiments in simplified nanophotonics settings.
 
-This post is a snapshot of the work so far, not a finished-project announcement. The direct PDE solver is still the reference path. The learned models are still narrow slab-family surrogates. Some milestones have worked well, some have produced mixed results, and some of the most useful results so far are the ones that forced the project to get more honest.
+This post is now a completed-work summary. The codebase is stable, the experiments are done, and a paper is in preparation. The direct PDE solver is still the reference path. The learned models are still narrow slab-family surrogates. Some milestones have worked well, some have produced mixed results, and some of the most useful results so far are the ones that forced the project to get more honest.
 
 Because the repository is still private, this write-up focuses on the benchmark design, validation milestones, and what the current results actually justify.
 
@@ -215,15 +215,25 @@ What keeps this project interesting to me is not that every new layer wins clean
 
 The PML milestone improved the direct solver in a way that shows up clearly in validation. The benchmark-facing normalization improved a comparison that had been misleading. The enhanced hybrid model does contain a genuinely useful source-aware term on this slab benchmark. The uncertainty layer is useful enough to support experiments, but not trustworthy enough to overclaim. The active-learning workflow works as code and as a reduced pilot, but it does not yet answer the broader data-efficiency question. I find that much more valuable than a project that only reports the parts that happened to look good.
 
-## What I’m Building Next
+## What Comes Next: The Paper
 
-The next steps are fairly clear from the current results.
+A paper is now in preparation:
 
-I want to keep strengthening the benchmark-facing side of the project rather than expanding scope too quickly. That means:
+*Toward Trustworthy Surrogate Models for Electromagnetic Simulation: A Systematic Evaluation of Physics-Informed Training, Uncertainty, and Active Learning on a Controlled Benchmark*
 
-- improving solver-facing normalization and external validation without pretending the scalar slab fix solves general flux normalization
-- pushing the hybrid physics terms toward stronger, less local constraints
-- rerunning the active-learning study at a larger budget and with multiple seeds before making bigger claims
-- improving the uncertainty diagnostics so the repo can distinguish spread that merely increases off-domain from spread that actually ranks error usefully
+The project is organized around one question: does this training pipeline produce a model you can actually trust? The paper is the formal answer to that question across the experiments described in this post. It reports the results honestly, including the places where the answer is only partial or mixed.
 
-More broadly, I want Neon to keep becoming the kind of research codebase that makes mixed results legible instead of hiding them. At the current state, that feels like the right direction.
+## Neon’s Model
+
+I am also releasing a trained Neon model on HuggingFace: [https://huggingface.co/Herrprofessor/Neon](https://huggingface.co/Herrprofessor/Neon)
+
+It is a fast neural network predictor for dielectric slab optical response. Give it slab thickness, relative permittivity real part, and wavelength, and it returns transmission, reflection, and peak intensity in milliseconds.
+
+This is not a general photonics model. It is trained on FDFD simulation data from Neon’s scalar slab benchmark. Researchers who work with this class of problem can use it as a fast screener, a baseline comparison, or a reproducibility tool for the paper results.
+
+```python
+from neon import Neon
+model = Neon.from_pretrained()
+result = model.predict(thickness=0.30, epsilon_real=2.25, wavelength=0.80)
+print(result)
+```
